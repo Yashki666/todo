@@ -1,0 +1,157 @@
+.kanit-regular {
+    font-family: "Kanit", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Kanit';
+    font-weight: bold;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+}
+
+.body-dark {
+    background-color: black;
+    color: white;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
+
+#main_div {
+    width: 750px;
+    height: 710px;
+}
+
+h2 {
+    font-size: 26px;
+    text-align: center;
+}
+
+form {
+    width: 750px;
+    height: 38px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+input[type=search] {
+    border: none;
+    width: 560px;
+    height: 34px;
+}
+
+form input::placeholder {
+    color: #c3c1e5;
+    font-size: 16px;
+    padding-left: 15px;
+}
+
+form>div {
+    width: 595px;
+    border: solid 2px #6C63FF;
+    border-radius: 5px;
+    background-color: white;
+}
+
+input[type=submit] {
+    width: 21px;
+    height: 21px;
+    background: url(files/search.png);
+    border: none;
+}
+
+form>select {
+    width: 85px;
+    height: 38px;
+    background-color: #6C63FF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+option {
+    font-size: 18px;
+}
+
+.btn_theme {
+    width: 38px;
+    height: 38px;
+    background-color: #6c6eff;
+    border-radius: 5px;
+    border: none;
+}
+
+.div_checkboxs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 750px;
+    height: 200px;
+}
+
+.div_checkboxs>div {
+    width: 525px;
+    height: 26px;
+    display: flex;
+
+}
+
+input[type=checkbox] {
+    width: 26px;
+    height: 26px;
+    border-radius: 2px;
+    border: solid 2px #6C63FF;
+    transition: 0.5s;
+}
+
+input[type=checkbox]:focus {
+    accent-color: #6c63ff;
+}
+
+label {
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+hr {
+    width: 520px;
+    border: 1px solid #6C63FF;
+    opacity: 50%;
+}
+
+.div_btn_plus {
+    width: 750px;
+    height: 375px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.div_btn_plus>button {
+    width: 50px;
+    height: 50px;
+    background-color: #6C63FF;
+    border: none;
+    border-radius: 50px;
+}
+
+.div_btn_plus img {
+    width: 24px;
+    height: 24px;
+}
