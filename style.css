@@ -26,6 +26,10 @@ body {
     color: white;
 }
 
+.label-dark {
+    color: white;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -127,6 +131,7 @@ input[type=checkbox]:focus {
 label {
     font-size: 20px;
     padding-left: 20px;
+    transition: 0.5s;
 }
 
 hr {
