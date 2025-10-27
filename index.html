@@ -1,11 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
-    
+    <main>
+        <div id="main_div">
+            <h2>TODO LIST</h2>
+            <form action="">
+                <div>
+                    <input type="search" placeholder="Поиск заметки...">
+                    <input type="submit" value="">
+                </div>
+                <select name="" id="">
+                    <option value="">ALL</option>
+                </select>
+                <button class="btn_theme" onclick="btn_theme()"><img src="files/luna.png"></button>
+            </form>
+            <div class="div_checkboxs">
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox_0" onclick="checkbox_change(0)">
+                    <label id="label_0" class="label_text">NOTE #1</label>
+                </div>
+                <hr>
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox_1" onclick="checkbox_change(1)">
+                    <label id="label_1" class="label_text">NOTE #2</label>
+                </div>
+                <hr>
+                <div>
+                    <input type="checkbox" class="checkbox" id="checkbox_2" onclick="checkbox_change(2)">
+                    <label id="label_2" class="label_text">NOTE #3</label>
+                </div>
+            </div>
+            <div class="div_btn_plus">
+                <button><img src="files/plus.png"></button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>
