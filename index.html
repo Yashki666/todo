@@ -6,49 +6,112 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
 </head>
 
 <body>
     <main>
-        <div id="main_div">
-            <h2>TODO LIST</h2>
-            <form action="">
-                <div>
-                    <input type="search" placeholder="Поиск заметки...">
-                    <input type="submit" value="">
+        <div class="background-dark-theme-menu"></div>
+        <div class="div-menu-add-note">
+            <div>
+                <div class="div-h2-and-input">
+                    <h2>NEW NOTE</h2>
+                    <input type="text" placeholder="Input your note..." class="input-add-note">
                 </div>
-                <select name="" id="">
-                    <option value="">ALL</option>
-                </select>
-                <button class="btn_theme"><img src="files/luna.png"></button>
-            </form>
-            <div class="div_checkboxs">
-                <div>
-                    <input type="checkbox" class="checkbox" id="checkbox_0" onclick="checkbox_change(0)">
-                    <label id="label_0" class="label_text">NOTE #1</label>
+                <div class="div-btns-cancel-and-apply">
+                    <button class="btn-cancel" onclick="btn_cancel()">
+                        <p>CANCEL</p>
+                    </button>
+                    <button class="btn-apply">
+                        <p>APPLY</p>
+                    </button>
                 </div>
-                <hr>
-                <div>
-                    <input type="checkbox" class="checkbox" id="checkbox_1" onclick="checkbox_change(1)">
-                    <label id="label_1" class="label_text">NOTE #2</label>
-                </div>
-                <hr>
-                <div>
-                    <input type="checkbox" class="checkbox" id="checkbox_2" onclick="checkbox_change(2)">
-                    <label id="label_2" class="label_text">NOTE #3</label>
-                </div>
-            </div>
-            <div class="div_btn_plus">
-                <button><img src="files/plus.png"></button>
             </div>
         </div>
+        <div class="div-menu-edit-note">
+            <div>
+                <div class="div-h2-and-input">
+                    <h2>EDIT MENU</h2>
+                    <input type="text" placeholder="Input your note..." class="input-edit-note">
+                </div>
+                <div class="div-btns-cancel-and-apply">
+                    <button class="btn-cancel" onclick="btn_cancel()">
+                        <p>CANCEL</p>
+                    </button>
+                    <button class="btn-apply-edit">
+                        <p>APPLY</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-div">
+            <div class="div-h2-and-form">
+                <h2>TODO LIST</h2>
+                <div class="div-search-note-and-change-theme">
+                    <form action="">
+                        <input type="text" placeholder="Search note..." class="input-search-note">
+                        <button class="btn-search-note"></button>
+                    </form>
+                    <select class="select-all">
+                        <option value="">ALL</option>
+                        <option value="">Complete</option>
+                        <option value="">Incomplete</option>
+                    </select>
+                    <button class="btn-change-theme"></button>
+                </div>
+            </div>
+            <div class="div-note-numbers-and-actions">
+                <div class="div-note-list">
+                    <div class="div-note-and-hr" id="div-note-0">
+                        <div class="div-note-and-actions">
+                            <div class="div-note">
+                                <input id="checkbox-0" type="checkbox" class="input-checkbox" value="">
+                                <label for="checkbox-0" id="label_note_0" class="label-text">NOTE #1</label>
+                            </div>
+                            <div class="div-edit-and-delete">
+                                <button class="btn-edit" onclick="edit_note(0)"></button>
+                                <button class="btn-delete" onclick="delete_note(0)"></button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="div-note-and-hr" id="div-note-1">
+                        <div class="div-note-and-actions">
+                            <div class="div-note">
+                                <input id="checkbox-1" type="checkbox" class="input-checkbox" value="">
+                                <label for="checkbox-1" id="label_note_1" class="label-text">NOTE #2</label>
+                            </div>
+                            <div class="div-edit-and-delete">
+                                <button class="btn-edit" onclick="edit_note(1)"></button>
+                                <button class="btn-delete" onclick="delete_note(1)"></button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="div-note-and-hr" id="div-note-2">
+                        <div class="div-note-and-actions">
+                            <div class="div-note">
+                                <input id="checkbox-2" type="checkbox" class="input-checkbox" value="">
+                                <label for="checkbox-2" id="label_note_2" class="label-text">NOTE #3</label>
+                            </div>
+                            <div class="div-edit-and-delete">
+                                <button class="btn-edit" onclick="edit_note(2)"></button>
+                                <button class="btn-delete" onclick="delete_note(2)"></button>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="div-detective-empty">
+                        <div class="detective"></div>
+                        <p class="empty">Empty...</p>
+                    </div>
+                </div>
+                <button class="btn-add-note"></button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
     </main>
-    <script src="script.js"></script>
 </body>
 
 </html>
