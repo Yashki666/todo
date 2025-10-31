@@ -95,7 +95,7 @@ main {
     background: none;
 }
 
-.input-add-note-dark, .input-edit-note {
+.input-add-note-dark, .input-edit-note-dark {
     border: solid 1px white;
 }
 
@@ -251,7 +251,7 @@ form {
 
 .div-note-list {
     width: 520px;
-    height: 545px;
+    height: 590px;
     display: block;
     justify-content: center;
 }
@@ -396,4 +396,8 @@ hr {
 .empty {
     font-family: 'Kanit';
     font-size: 20px;
+}
+
+.hr-0 {
+    opacity: 0;
 }

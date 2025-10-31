@@ -1,7 +1,13 @@
 let background_dark = document.querySelector('.background-dark-theme-menu');
 let menu = document.querySelector('.div-menu-add-note');
 let menu_edit = document.querySelector('.div-menu-edit-note');
-let temp_i = 3;
+let option = document.querySelector('.option-edit-note-list1');
+option.addEventListener('click', () => {
+    console.log(1);
+})
+let select = document.querySelector('.select-all');
+let temp_i = document.querySelector('.div-note-and-hr').children.length+1;
+let temp_index;
 
 document.querySelector('.btn-add-note').addEventListener('click', () => {
     background_dark.style.display = 'flex';
@@ -20,9 +26,19 @@ document.querySelector('.btn-change-theme').addEventListener('click', () => {
     document.querySelector('.input-search-note').classList.toggle('input-search-note-dark');
     document.querySelector('.btn-search-note').classList.toggle('btn-search-note-dark');
     document.querySelector('.div-menu-add-note').classList.toggle('div-menu-add-note-dark');
+    document.querySelector('.div-menu-edit-note').classList.toggle('div-menu-edit-note-dark');
     document.querySelector('.input-add-note').classList.toggle('input-add-note-dark');
+    document.querySelector('.input-edit-note').classList.toggle('input-edit-note-dark');
     document.querySelector('.detective').classList.toggle('detective-dark');
 })
+
+function checked_checkbox(index) {
+    if (document.querySelector(`#checkbox-${index}`).checked) {
+        document.querySelector(`#label_note_${index}`).style.textDecoration = 'line-through';
+    } else {
+        document.querySelector(`#label_note_${index}`).style.textDecoration = 'none';
+    }
+}
 
 function btn_cancel() {
     menu.style.opacity = '0';
@@ -41,8 +57,9 @@ document.querySelector('.btn-apply').addEventListener('click', () => {
     let value_input = document.querySelector('.input-add-note').value;
     let clone = `
     <div class="div-note-and-hr" id="div-note-${temp_i}">
+        <hr class="hr-${temp_i}">
         <div class="div-note-and-actions">
-            <div class="div-note">
+            <div class="div-note" onclick="checked_checkbox(${temp_i})">
                 <input id="checkbox-${temp_i}" type="checkbox" class="input-checkbox" value="">
                 <label for="checkbox-${temp_i}" id="label_note_${temp_i}" class="label-text"></label>
             </div>
@@ -51,7 +68,6 @@ document.querySelector('.btn-apply').addEventListener('click', () => {
                 <button class="btn-delete" onclick="delete_note(${temp_i})"></button>
             </div>
         </div>
-        <hr>
     </div>
     `
     if (length_list > 0 && length_list < 7) {
@@ -81,8 +97,8 @@ function delete_note(index) {
     }
     temp_i--;
 }
-function edit_note(index1) {
-    console.log(index1);
+function edit_note(index) {
+    console.log(index);
     background_dark.style.display = 'flex';
     background_dark.style.opacity = '0';
     menu_edit.style.display = 'block';
@@ -91,13 +107,44 @@ function edit_note(index1) {
         menu_edit.style.opacity = '1';
         background_dark.style.opacity = '0.7';
     }, 10);
-    document.querySelector(`#label_note_${index1}`).textContent = document.querySelector('.input-edit-note').value
+    temp_index = index;
 }
 document.querySelector('.btn-apply-edit').addEventListener('click', () => {
+    document.querySelector(`#label_note_${temp_index}`).textContent = document.querySelector('.input-edit-note').value;
     menu_edit.style.opacity = '0';
     background_dark.style.opacity = '0';
     setTimeout(() => {
         background_dark.style.display = 'none';
         menu_edit.style.display = 'none';
     }, 300);
+    document.querySelector('.input-edit-note').value = '';
 })
+
+function btn_search() {
+    document.querySelectorAll('.div-note-and-hr').forEach((elem, i) => {
+        let temp_text_label = document.querySelector(`#label_note_${i}`).textContent.toUpperCase();
+        let temp_search_input = document.querySelector('.input-search-note').value.toUpperCase();
+        console.log(temp_text_label);
+        console.log(temp_search_input);
+        if (temp_search_input == '') {
+            document.querySelector(`#div-note-${i}`).style.display = 'flex';
+        } else if (temp_text_label.includes(temp_search_input)) {
+            document.querySelector(`#div-note-${i}`).style.display = 'flex';
+        } else {
+            document.querySelector(`#div-note-${i}`).style.display = 'none';
+        }
+    })
+}
+
+select.addEventListener('change', () => {
+    console.log(select.value);
+    document.querySelectorAll('.input-checkbox').forEach((element, i) => {
+        if (select.value == 'complete' && !element.checked) {
+            document.querySelector(`#div-note-${i}`).style.display = 'none';
+        } else if (select.value == 'incomplete' && element.checked) {
+            document.querySelector(`#div-note-${i}`).style.display = 'none';
+        } else if (select.value == 'all') {
+            document.querySelector(`#div-note-${i}`).style.display = 'flex';
+        }
+    });
+}) 
