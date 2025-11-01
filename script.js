@@ -6,7 +6,7 @@ option.addEventListener('click', () => {
     console.log(1);
 })
 let select = document.querySelector('.select-all');
-let temp_i = document.querySelector('.div-note-and-hr').children.length+1;
+let temp_i = document.querySelector('.div-note-and-hr').children.length + 1;
 let temp_index;
 
 document.querySelector('.btn-add-note').addEventListener('click', () => {
@@ -96,6 +96,7 @@ function delete_note(index) {
         document.querySelector('.div-note-list').style.display = 'flex';
     }
     temp_i--;
+    timer_undo();
 }
 function edit_note(index) {
     console.log(index);
@@ -147,4 +148,20 @@ select.addEventListener('change', () => {
             document.querySelector(`#div-note-${i}`).style.display = 'flex';
         }
     });
-}) 
+})
+function timer_undo() {
+    let i = 2;
+    document.querySelector('.timer').textContent = i;
+    document.querySelector('.div-undo').style.display = 'flex';
+    document.querySelector('.loader').style.animation = 'l1 2s infinite linear';
+    const timer = setInterval(() => {
+        i--;
+        document.querySelector('.timer').textContent = i;
+
+        if (i <= -1) {
+            document.querySelector('.loader').style.animation = 'none';
+            document.querySelector('.div-undo').style.display = 'none';
+            clearInterval(timer);
+        }
+    }, 650);
+}
