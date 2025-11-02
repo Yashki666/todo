@@ -52,70 +52,43 @@
                         <input type="text" placeholder="Search note..." class="input-search-note">
                         <button class="btn-search-note" onclick="btn_search()" type="button"></button>
                     </form>
-                    <select class="select-all">
-                        <option value="all" class="option-edit-note-list1">ALL</option>
-                        <option value="complete" class="option-edit-note-list">Complete</option>
-                        <option value="incomplete" class="option-edit-note-list">Incomplete</option>
-                    </select>
+
+                    <div class="dropdown" id="filterDropdown">
+                        <button class="btn-dropdown" id="filterBtn" type="button" aria-haspopup="listbox"
+                            aria-expanded="false">
+                            <p class="textDropdown">ALL</p>
+                            <img class="chev" src="files/chevron-top.svg">
+                        </button>
+                        <ul class="menu" role="listbox" aria-label="Filter">
+                            <li role="option" value="all" onclick="filterDropdown('all')">All</li>
+                            <li role="option" value="complete" onclick="filterDropdown('complete')">Complete</li>
+                            <li role="option" value="incomplete" onclick="filterDropdown('incomplete')">Incomplete</li>
+                        </ul>
+                    </div>
                     <button class="btn-change-theme"></button>
                 </div>
             </div>
             <div class="div-note-numbers-and-actions">
                 <div class="div-note-list">
+                    <div class="div-detective-empty">
+                        <div class="detective"></div>
+                        <p class="empty">Empty...</p>
+                    </div>
                     <div class="div-note-and-hr" id="div-note-0">
                         <hr class="hr-0">
                         <div class="div-note-and-actions">
-                            <div class="div-note" onclick="checked_checkbox(0)">
+                            <div class="div-note" onclick="checked_checkbox(0)" id="div-note-0">
                                 <input id="checkbox-0" type="checkbox" class="input-checkbox" value="">
                                 <label for="checkbox-0" id="label_note_0" class="label-text">NEW NOTE</label>
                             </div>
-                            <div class="div-edit-and-delete">
+                            <div class="div-edit-and-delete" id="div-action-0">
                                 <button class="btn-edit" onclick="edit_note(0)"></button>
                                 <button class="btn-delete" onclick="delete_note(0)"></button>
                             </div>
                         </div>
                     </div>
-                    <div class="div-note-and-hr" id="div-note-1">
-                        <hr class="hr-1">
-                        <div class="div-note-and-actions">
-                            <div class="div-note" onclick="checked_checkbox(1)">
-                                <input id="checkbox-1" type="checkbox" class="input-checkbox" value="">
-                                <label for="checkbox-1" id="label_note_1" class="label-text">NOTE #2</label>
-                            </div>
-                            <div class="div-edit-and-delete">
-                                <button class="btn-edit" onclick="edit_note(1)"></button>
-                                <button class="btn-delete" onclick="delete_note(1)"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-note-and-hr" id="div-note-2">
-                        <hr class="hr-2">
-                        <div class="div-note-and-actions">
-                            <div class="div-note" onclick="checked_checkbox(2)">
-                                <input id="checkbox-2" type="checkbox" class="input-checkbox" value="">
-                                <label for="checkbox-2" id="label_note_2" class="label-text">NOTE #3</label>
-                            </div>
-                            <div class="div-edit-and-delete">
-                                <button class="btn-edit" onclick="edit_note(2)"></button>
-                                <button class="btn-delete" onclick="delete_note(2)"></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-detective-empty">
-                        <div class="detective"></div>
-                        <p class="empty">Empty...</p>
-                    </div>
                 </div>
                 <button class="btn-add-note"></button>
-            </div>
-        </div>
-        <div class="div-undo">
-            <div class="loader-div">
-                <div class="loader"></div>
-                <p class="timer">2</p>
-            </div>
-            <div>
-                <p>UNDO <img src="files/undo.svg"></p>
             </div>
         </div>
 
