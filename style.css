@@ -327,12 +327,6 @@ form {
     align-items: center;
 }
 
-.div-note-and-actions:hover {
-    .div-edit-and-delete {
-        opacity: 1;
-    }
-}
-
 .div-note {
     display: flex;
     align-items: center;
@@ -366,7 +360,6 @@ label {
     height: 18px;
     display: flex;
     justify-content: space-evenly;
-    opacity: 0;
     transition: 0.2s;
 }
 
@@ -379,11 +372,11 @@ label {
     width: 18px;
     height: 18px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
 .btn-edit {
     background-image: url(files/edit.svg);
-    transition: 0.1s;
 }
 
 .btn-edit:hover {
@@ -392,7 +385,6 @@ label {
 
 .btn-delete {
     background-image: url(files/delete.svg);
-    transition: 0.1s;
 }
 
 .btn-delete:hover {

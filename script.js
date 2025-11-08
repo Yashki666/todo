@@ -81,9 +81,20 @@ document.querySelector('.btn-apply').addEventListener('click', () => {
     </div>
     `
     if (length_list > 0 && length_list < 7) {
-        noteList.insertAdjacentHTML('beforeend', clone);
-        document.querySelector(`#label_note_${temp_i}`).textContent = value_input;
-        temp_i++;
+        if (value_input.length > 50) {
+            alert("Слишком длинный пункт!");
+        } else {
+            noteList.insertAdjacentHTML('beforeend', clone);
+            document.querySelector(`#label_note_${temp_i}`).textContent = value_input;
+            temp_i++;
+            menu.style.opacity = '0';
+            background_dark.style.opacity = '0';
+            setTimeout(() => {
+                background_dark.style.display = 'none';
+                menu.style.display = 'none';
+            }, 300);
+            document.querySelector('.input-add-note').value = ''
+        }
     } else {
         alert('Много заметок!');
     }
@@ -91,13 +102,6 @@ document.querySelector('.btn-apply').addEventListener('click', () => {
         document.querySelector('.div-detective-empty').style.display = 'none';
         noteList.style.display = 'block';
     }
-
-    menu.style.opacity = '0';
-    background_dark.style.opacity = '0';
-    setTimeout(() => {
-        background_dark.style.display = 'none';
-        menu.style.display = 'none';
-    }, 300);
 })
 
 // Удаления пункта
@@ -145,15 +149,19 @@ function edit_note(index) {
 
 // Кнопка подверждение на изменение пункта.
 document.querySelector('.btn-apply-edit').addEventListener('click', () => {
-    document.querySelector(`#label_note_${temp_index}`).textContent = document.querySelector('.input-edit-note').value;
-    menu_edit.style.opacity = '0';
-    background_dark.style.opacity = '0';
-    setTimeout(() => {
-        background_dark.style.display = 'none';
-        menu_edit.style.display = 'none';
-    }, 300);
-    document.querySelector('.input-edit-note').value = '';
-})
+    if (document.querySelector('.input-edit-note').value.length > 50) {
+        alert("Слишком длинный пункт!");
+    } else {
+        document.querySelector(`#label_note_${temp_index}`).textContent = document.querySelector('.input-edit-note').value;
+        menu_edit.style.opacity = '0';
+        background_dark.style.opacity = '0';
+        setTimeout(() => {
+            background_dark.style.display = 'none';
+            menu_edit.style.display = 'none';
+        }, 300);
+        document.querySelector('.input-edit-note').value = '';    
+    }
+});
 
 // Кнопка поиска пункта по названию.
 function btn_search() {
