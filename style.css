@@ -248,6 +248,11 @@ form {
     border-radius: 5px;
     display: none;
     z-index: 100;
+    transition: 0.5s;
+}
+
+.menu-dark {
+    background: #252525;
 }
 
 .dropdown.open .menu {
@@ -308,8 +313,9 @@ form {
 .div-note-list {
     width: 520px;
     height: 570px;
-    display: block;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .div-note-and-hr {
@@ -461,8 +467,6 @@ hr {
     align-items: center;
     transition: 0.5s;
     cursor: pointer;
-    position: absolute;
-    right: 0;
 }
 
 .div-undo:hover {
@@ -513,4 +517,25 @@ hr {
     0% {
         clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
     }
+}
+
+.btn-change-language {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: #6C63FF;
+    border: solid 2px #6C63FF;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.2s;
+    cursor: pointer;
+    color: white;
+}
+
+.btn-change-language:hover {
+    background-color: #534CC2;
+    box-shadow: 0 0 4px 0 #6C63FF;
 }
